@@ -1,0 +1,48 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <p:presentation sizeof="screen" gridspacingx="49152" gridspacingy="49152">
+  <p:master id="30" slidesn="1C92637,29EBDD30" type="main" href="master30.htm"
+   xmlhref="master30.xml" template="Recommending a Strategy (Online)"
+   layout="title_body" slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+    <p:colorscheme
+     colors="#996633,#FFFFFF,#000000,#FF9900,#D60093,#FFFF66,#FF9933,#FFCCFF"/>
+    <p:colorscheme
+     colors="#FFFFCC,#FFFFFF,#FFFFCC,#996600,#FFCC00,#6666FF,#999933,#990066"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#FFFFFF,#000000,#EAEAEA,#969696,#5F5F5F,#CBCBCB"/>
+    <p:colorscheme
+     colors="#990066,#FFFFFF,#000000,#008080,#D60093,#FFFF66,#FF9933,#FFCCFF"/>
+   </p:schemes>
+  </p:master>
+  <p:master id="31" slidesn="1C92637,29EBDD30" type="title" href="master31.htm"
+   xmlhref="master31.xml" layout="title_subtitle"
+   slots="centerTitle,subTitle,dateTime,footer,slideNumber"/>
+  <p:slide id="2" slidesn="1C90ED1,5E166710" href="slide0002.htm"
+   masterhref="master31.htm" layout="title_subtitle"
+   slots="centerTitle,subTitle"/>
+  <p:viewstate type="slideView" restoredleft="156" restoredtop="946"
+   hideoutlineicons="t"/>
+  <p:font name="Arial" charset="0" type="4" family="34"/>
+  <p:font name="Arial Narrow" charset="0" type="4" family="34"/>
+  <p:font name="Times New Roman" charset="0" type="4" family="18"/>
+  <p:font name="Wingdings" charset="2" type="4" family="2"/>
+  <p:font name="Monotype Sorts" charset="2" type="6" family="2"/>
+  <p:font name="Trebuchet MS" charset="0" type="4" family="34"/>
+  <p:font name="PMingLiU" charset="136" type="4" family="18"/>
+  <p:font name="Impact" charset="0" type="4" family="34"/>
+  <p:font name="Arial Black" charset="0" type="4" family="34"/>
+  <p:headersfooters noheader="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"
+   browsersupport="v4"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="39967" style='mso-wrap-style:none'>
+  <v:fill alignshape="f"/>
+  <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+   endarrowlength="short" color2="none [0]" weight="1pt" endcap="square"
+   imagealignshape="f"/>
+  <o:colormru v:ext="edit" colors="#060,#0c0,#9c0,#c60,#f90"/>
+  <o:colormenu v:ext="edit" fillcolor="#9c0"/>
+ </o:shapedefaults></xml>

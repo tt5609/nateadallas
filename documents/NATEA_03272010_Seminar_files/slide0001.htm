@@ -1,0 +1,756 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../NATEA_03272010_Seminar.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title> </title>
+<meta name=Description content="3/19/2010:  ">
+<link rel=Stylesheet href="master03_stylesheet.css">
+<![if !ppt]>
+<style>
+.CT
+	{color:black;}
+</style>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() 
+{
+	var regExp = /file:\/\/\//i
+	var pos = location.href.search(regExp)
+	if (MHTMLPrefix != "" && pos != -1)
+		sId = location.href.substring(pos)
+	else
+	{
+		sId = RemoveFilePrefixFromHref(location.href);
+		var regExp = /\//
+		var fixedHref = sId
+		var pos = -1
+	
+		pos = fixedHref.search(regExp)
+		while (pos != -1)
+		{
+			fixedHref = fixedHref.replace(regExp, "\\")
+			pos = fixedHref.search(regExp)
+		}
+	
+		if (g_fBaseHyperlink == true)
+			sId = "file:///" + fixedHref;
+		else
+			sId = fixedHref.substring(fixedHref.lastIndexOf('\\') + 1)
+	}
+	
+	return sId
+}
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+</o:shapelayout>
+</head>
+
+<body lang=EN-US style='margin:0px;background-color:white' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:black;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#808080,#000000,#bbe0e3,#333399,#009999,#99cc00"
+ masterhref="master03.xml">
+ <v:background id="_x0000_s2049" o:bwmode="white" fillcolor="black [1]">
+  <v:fill color2="#339 [5]"/>
+ </v:background><![if !ppt]><p:shaperange href="master03.xml#_x0000_s1028"/><p:shaperange
+  href="master03.xml#_x0000_s1029"/><![endif]><p:shaperange
+  href="master03.xml#_x0000_m1026"/><v:shape id="_x0000_s2050" type="#_x0000_m1026"
+  style='position:absolute;left:54pt;top:167.75pt;width:612pt;height:115.75pt'>
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="centerTitle"/></v:shape>
+ <div v:shape="_x0000_s2050" class=CT><span style='position:absolute;
+ top:32.53%;left:8.48%;width:83.21%;height:9.39%'><br>
+  </span><span style='position:absolute;top:42.4%;left:8.48%;width:83.21%;
+ height:9.39%'><span style='mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s2054" type="#_x0000_t75" style='position:absolute;
+  left:132pt;top:90pt;width:480pt;height:362.75pt'>
+  <v:imagedata src="slide0001_image001.gif" o:title="BWP"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2054"
+ src="slide0001_image001.gif" style='position:absolute;top:16.62%;left:18.41%;
+ width:66.6%;height:67.22%'><![endif]><v:shape id="_x0000_s2055" type="#_x0000_t75"
+  style='position:absolute;left:5in;top:192pt;width:126pt;height:125.125pt'>
+  <v:imagedata src="slide0001_image002.gif" o:title="Computer 04"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2055"
+ src="slide0001_image003.gif" style='position:absolute;top:35.66%;left:50.0%;
+ width:17.5%;height:23.13%'><![endif]><v:shape id="_x0000_s2057" type="#_x0000_t75"
+  style='position:absolute;left:210pt;top:48pt;width:4in;height:48pt'>
+  <v:imagedata src="slide0001_image004.jpg" o:title="Canstock1996311x"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2057"
+ src="slide0001_image005.jpg" style='position:absolute;top:8.91%;left:29.24%;
+ width:40.07%;height:8.91%'><![endif]><v:shapetype id="_x0000_t136"
+  coordsize="21600,21600" o:spt="136" adj="10800" path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2058" type="#_x0000_t136" style='position:absolute;
+  left:240pt;top:60pt;width:234pt;height:24pt' fillcolor="white [0]">
+  <v:fill color2="white [0]" rotate="t" focus="100%" type="gradient"/>
+  <v:shadow color="#868686"/>
+  <o:extrusion v:ext="view" backdepth="10pt" color="#630" on="t" viewpoint=",0"
+   viewpointorigin=",0" skewangle="180" brightness="4000f" lightposition="-50000"
+   lightlevel="52000f" lightposition2="50000" lightlevel2="14000f"
+   lightharsh2="t"/>
+  <v:textpath style='font-family:"Arial Black";font-size:40pt;v-text-kern:t'
+   trim="t" fitpath="t" string="&#21488;&#24037;&#26371;&#31185;&#25216;&#24231;&#35527;&#26371;"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2058"
+ src="slide0001_image006.gif" alt=&#21488;&#24037;&#26371;&#31185;&#25216;&#24231;&#35527;&#26371;
+ style='position:absolute;top:11.08%;left:33.21%;width:33.57%;height:5.06%'><![endif]><v:shape
+  id="_x0000_s2059" type="#_x0000_t75" style='position:absolute;left:198pt;
+  top:108pt;width:309.75pt;height:12pt'>
+  <v:imagedata src="slide0001_image007.gif" o:title="comet-bl"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2059"
+ src="slide0001_image007.gif" style='position:absolute;top:20.0%;left:27.43%;
+ width:42.96%;height:2.16%'><![endif]><v:shape id="_x0000_s2061" type="#_x0000_t75"
+  style='position:absolute;left:342pt;top:414pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2061"
+ src="slide0001_image008.gif" style='position:absolute;top:76.62%;left:47.47%;
+ width:7.76%;height:10.36%'><![endif]><v:shape id="_x0000_s2062" type="#_x0000_t75"
+  style='position:absolute;left:516pt;top:102pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2062"
+ src="slide0001_image008.gif" style='position:absolute;top:18.79%;left:71.66%;
+ width:7.76%;height:10.36%'><![endif]><v:shape id="_x0000_s2063" type="#_x0000_t75"
+  style='position:absolute;left:1in;top:96pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2063"
+ src="slide0001_image008.gif" style='position:absolute;top:17.83%;left:9.92%;
+ width:7.76%;height:10.36%'><![endif]><v:shape id="_x0000_s2064" type="#_x0000_t75"
+  style='position:absolute;left:534pt;top:246pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2064"
+ src="slide0001_image008.gif" style='position:absolute;top:45.54%;left:74.18%;
+ width:7.76%;height:10.36%'><![endif]><v:shape id="_x0000_s2065" type="#_x0000_t75"
+  style='position:absolute;left:114pt;top:246pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2065"
+ src="slide0001_image008.gif" style='position:absolute;top:45.54%;left:15.88%;
+ width:7.76%;height:10.36%'><![endif]><v:shape id="_x0000_s2066" type="#_x0000_t75"
+  style='position:absolute;left:312pt;top:276pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2066"
+ src="slide0001_image008.gif" style='position:absolute;top:51.08%;left:43.32%;
+ width:7.76%;height:10.36%'><![endif]><v:shape id="_x0000_s2067" type="#_x0000_t75"
+  style='position:absolute;left:342pt;top:102pt;width:56.25pt;height:56.25pt'>
+  <v:imagedata src="slide0001_image008.gif" o:title="sun1"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2067"
+ src="slide0001_image008.gif" style='position:absolute;top:18.79%;left:47.47%;
+ width:7.76%;height:10.36%'><![endif]><v:shapetype id="_x0000_t202"
+  coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s2068" type="#_x0000_t202" style='position:absolute;
+  left:54pt;top:90pt;width:624pt;height:406.25pt' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s2068" class=O>
+ <div style='mso-line-spacing:"125 0 0"'><span style='position:absolute;
+ top:18.07%;left:8.48%;width:101.44%;height:3.13%'><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#30001;&#21488;&#24037;&#26371;&#36948;&#25289;&#26031;&#20998;&#26371;&#20027;&#36774;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>,
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#21488;&#28771;&#21516;&#37129;&#26371;&#36948;&#25289;&#26031;&#20998;&#26371;&#21332;&#36774;&#30340;&#20170;&#24180;&#24230;&#31532;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#19968;&#22580;&#31185;&#25216;&#24231;&#35527;&#26371;&#23559;&#26044;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>3</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26376;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>27</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26085;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ (</b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#20845;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>)
+ </b></span></span><span style='position:absolute;top:21.92%;left:8.48%;
+ width:102.16%;height:3.13%'><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#19979;&#21320;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ 2:00PM</b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#33267;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ 4:00PM</b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#22312;</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'>&#12300;</span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#21488;&#24515;&#30340;&#23478;</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'>&#12301;</span><span lang=EN-US
+ style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>(</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-CN'><b>Westgrove
+ Plaza, 4222 Trinity Mills Road, #260, Dallas, </b></span></span><span
+ style='position:absolute;top:25.78%;left:8.48%;width:84.83%;height:3.13%'><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-CN'><b>TX
+ 75287</b></span><span lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-fareast-language:ZH-TW'><b>)</b></span><span lang=EN-US style='mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-fareast-language:ZH-CN'> </span><span lang=ZH-CN
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#33289;&#34892;</b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#12290;</b></span><span lang=ZH-TW
+ style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ &#13;</b></span></span></div>
+ <div style='mso-line-spacing:"125 0 0"'><span style='position:absolute;
+ top:30.12%;left:8.48%;width:100.54%;height:2.89%'><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#36889;&#27425;&#31185;&#25216;&#24231;&#35527;&#26371;&#38750;&#24120;&#38627;&#24471;&#36992;&#35531;&#21040;&#20841;&#20301;&#20625;&#20986;&#21516;&#37129;&#12289;&#20063;&#26159;&#21488;&#24037;&#26371;&#30340;&#29702;&#20107;&#20358;&#32102;&#25105;&#20497;&#20027;&#35611;&#12290;&#31532;&#19968;&#20301;&#26159;&#22312;&#36948;&#25289;</b></span></span><span
+ style='position:absolute;top:33.73%;left:8.48%;width:100.36%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26031;&#19968;&#23478;&#38651;&#33126;&#26381;&#21209;&#20844;&#21496;&#36039;&#28145;&#31995;&#32113;&#24037;&#31243;&#24107;&#30340;&#34081;&#38748;&#29004;&#20808;&#29983;&#65292;&#20182;&#23559;&#20027;&#35611;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'> </span><span lang=EN-US style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>&#12318;&#32178;&#36335;&#25915;&#25802;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ (Cyber Attack) </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#20043;&#38928;&#38450;</b></span></span><span
+ style='position:absolute;top:37.59%;left:8.48%;width:100.18%;height:3.13%'><span
+ lang=EN-US style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-fareast-language:ZH-TW'><b>&#12317;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'>
+ </span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#12290;&#38568;&#33879;&#20491;&#20154;&#20197;&#21450;&#20844;&#21496;&#20208;&#36084;&#38651;&#33126;&#21644;&#36039;&#35338;&#20351;&#29992;&#33287;&#26085;&#20465;&#22686;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>,
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#22312;&#20854;&#36575;&#39636;&#30828;&#39636;&#31185;&#25216;&#30340;&#26085;&#26032;&#26376;&#30064;&#30332;&#23637;&#19979;&#65292;&#38651;&#33126;</b></span></span><span
+ style='position:absolute;top:41.44%;left:8.48%;width:99.63%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#39405;&#23458;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>(hacker)</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'>&#12289;</span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#38651;&#33126;&#34837;&#34802;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ (worm)</b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#12289;</span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#38651;&#33126;&#30149;&#27602;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ (virus) </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#31561;&#31561;&#19981;&#36895;&#20043;&#23458;&#20063;&#25509;&#36405;&#32780;&#33267;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#19981;&#38627;&#24819;&#20687;&#65292;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#36889;&#32178;</b></span></span><span
+ style='position:absolute;top:45.54%;left:8.48%;width:100.54%;height:2.89%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#36335;&#25915;&#25802;&#25152;&#25307;&#33268;&#30340;&#25613;&#22833;&#24517;&#23450;&#25976;&#20197;&#33836;&#35336;&#65292;&#24460;&#26524;&#19981;&#22570;&#35373;&#24819;&#12290;&#34081;&#38748;&#29004;&#20808;&#29983;&#30340;&#28436;&#35611;&#20027;&#39636;&#23559;&#27880;&#37325;&#26044;&#22914;&#20309;&#38450;&#31684;</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'>&#12289;</span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#20597;</b></span></span><span style='position:
+ absolute;top:49.15%;left:8.48%;width:99.45%;height:3.13%'><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#28204;&#19968;&#33324;&#39405;&#23458;&#21644;&#24801;&#24847;&#31243;&#24335;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#30340;&#25915;&#25802;&#12290;&#21482;&#26377;&#22312;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#20581;&#20840;&#23433;&#31337;&#30340;&#36039;&#35338;&#29872;&#22659;&#19979;&#65292;&#22823;&#23478;&#25165;&#33021;&#30433;&#24773;&#22320;&#20139;&#29992;&#39640;&#31185;&#25216;&#30340;&#25104;</b></span></span><span
+ style='position:absolute;top:53.01%;left:8.48%;width:101.08%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26524;&#65307;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#32780;&#22914;&#20309;&#36861;&#27714;&#24590;&#40636;&#27171;&#20358;&#38450;&#20633;&#36889;&#20123;&#32178;&#36335;&#25915;&#25802;&#65292;&#35731;&#25105;&#20497;&#23433;&#24515;&#19978;&#32178;&#23601;&#26159;&#25105;&#20497;&#27599;&#19968;&#20154;&#37117;&#28145;&#24819;&#36948;&#21040;&#30340;&#22659;&#30028;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>   </span>&#13;</b></span></span></div>
+ <div style='mso-line-spacing:"125 0 0"'><span style='position:absolute;
+ top:57.1%;left:8.48%;width:99.45%;height:3.13%'><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:Arial;font-size:78%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>&#31532;&#20108;&#20301;&#26159;&#26954;&#37329;&#25991;&#21338;&#22763;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>,
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#20182;&#26159;&#36948;&#25289;&#26031;&#19968;&#23478;&#29983;&#25216;&#20844;&#21496;&#30340;&#36039;&#28145;&#31185;&#23416;&#23478;&#65292;&#20182;&#28436;&#35611;&#30340;&#20027;&#38988;&#26159;&#12318;&#32769;&#21270;&#30340;&#35352;&#25014;&#25613;&#22833;</b></span></span><span
+ style='position:absolute;top:60.96%;left:8.48%;width:99.45%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#33287;&#25913;&#36914;&#12317;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#22914;&#30526;&#25152;&#21608;&#30693;&#65292;&#20154;&#39006;&#30340;&#29983;&#29702;&#21151;&#33021;&#38568;&#33879;&#24180;&#40801;&#30340;&#22686;&#21152;&#32780;&#36880;&#28472;&#36864;&#21270;&#65292;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#33126;&#30340;&#35352;&#25014;&#21151;&#33021;&#30070;&#28982;&#20063;&#19981;&#20363;</b></span></span><span
+ style='position:absolute;top:64.81%;left:8.48%;width:100.72%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#22806;&#65292;&#20276;&#38568;&#33879;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#24180;&#27506;&#22686;&#38263;&#30340;&#26159;&#65306;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#23416;&#24471;&#24930;&#12289;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#24536;&#24471;&#24555;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#22312;&#36889;&#19968;&#30740;&#35342;&#20013;&#26954;&#21338;&#22763;&#23559;&#35527;&#21040;&#33126;&#30340;&#35352;&#25014;&#21151;&#33021;&#26159;&#22914;&#20309;&#24418;</b></span></span><span
+ style='position:absolute;top:68.67%;left:8.48%;width:100.18%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#25104;&#65292;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#20006;&#35527;&#21450;&#26377;&#37027;&#24190;&#31278;&#19981;&#21516;&#30340;&#35352;&#25014;&#21151;&#33021;&#65292;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#20197;&#21450;&#24433;&#38911;&#25105;&#20497;&#35352;&#25014;&#30340;&#19968;&#20123;&#22240;&#32032;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#22312;&#32769;&#21270;&#30340;&#35352;&#25014;&#25613;&#22833;&#19978;&#65292;&#22914;</b></span></span><span
+ style='position:absolute;top:72.77%;left:8.48%;width:100.54%;height:2.89%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#20309;&#36776;&#21029;&#27491;&#24120;&#30340;&#32769;&#21270;&#21644;&#30305;&#21574;&#30151;&#19981;&#21516;&#20043;&#34389;&#12289;&#22914;&#20309;&#38928;&#38450;&#25110;&#24310;&#32233;&#30001;&#32769;&#21270;&#25152;&#24341;&#36215;&#30340;&#35352;&#25014;&#25613;&#22833;&#33287;&#25913;&#36914;&#20063;&#37117;&#26371;&#25552;&#20986;</b></span></span><span
+ style='position:absolute;top:76.38%;left:8.48%;width:84.83%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#35342;&#35542;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>   </span>&#13;</b></span></span></div>
+ <div style='mso-line-spacing:"125 0 0"'><span style='position:absolute;
+ top:80.24%;left:8.48%;width:99.63%;height:3.13%'><span lang=EN-US
+ style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>3</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26376;</b></span><span
+ lang=EN-US style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-TW'><b>27</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26085;&#30340;&#31185;&#25216;&#24231;&#35527;&#26371;&#23559;&#26371;&#26159;&#19968;&#22580;&#26997;&#20854;&#38627;&#33021;&#21487;&#36020;&#30340;&#31185;&#25216;&#30693;&#35672;&#20998;&#20139;&#65292;&#25152;&#30740;&#35342;&#30340;&#35696;&#38988;&#37117;&#36319;&#25105;&#20497;&#26085;&#24120;&#29983;&#27963;</b></span></span><span
+ style='position:absolute;top:84.33%;left:8.48%;width:101.8%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#26377;&#23494;&#20999;&#30340;&#38364;&#20418;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#27231;&#26371;&#38627;&#24471;&#65292;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#24076;&#26395;&#22823;&#23478;&#33021;&#22816;&#36404;&#36493;&#21069;&#20358;&#21443;&#21152;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#35443;&#24773;&#35531;&#21521;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#36249;&#33459;&#29645;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ (972-910-0742) </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#25110;&#37165;&#24544;</b></span></span><span
+ style='position:absolute;top:88.19%;left:8.48%;width:84.83%;height:3.13%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:78%;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'><b>&#20659;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>
+ (972-867-8481) </b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;
+ font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>&#32879;&#32097;&#12290;</b></span><span
+ lang=ZH-TW style='mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'> </span><span
+ style='font-size:78%;color:white;mso-color-index:0;mso-special-format:lastCR;
+ display:none'>&#13;</span></span></div>
+ </div>
+ <v:shape id="_x0000_s2069" type="#_x0000_t75" style='position:absolute;left:0;
+  top:0;width:10in;height:540pt'>
+  <v:imagedata src="slide0001_image009.png" o:title="Frame-1051"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2069"
+ src="slide0001_image010.gif" style='position:absolute;top:0%;left:0%;
+ width:100.0%;height:100.0%'><![endif]><v:shape id="_x0000_s2071" type="#_x0000_t75"
+  style='position:absolute;left:108pt;top:48pt;width:48pt;height:45.75pt'>
+  <v:imagedata src="slide0001_image011.jpg" o:title="NATEA LOGO Small"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2071"
+ src="slide0001_image012.jpg" style='position:absolute;top:8.91%;left:14.98%;
+ width:6.67%;height:8.43%'><![endif]><v:shape id="_x0000_s2073" type="#_x0000_t75"
+  style='position:absolute;left:558pt;top:48pt;width:48pt;height:47.125pt'>
+  <v:imagedata src="slide0001_image013.jpg" o:title="TAA Logo 05"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2073"
+ src="slide0001_image014.jpg" style='position:absolute;top:8.91%;left:77.43%;
+ width:6.67%;height:8.67%'><![endif]><v:shape id="_x0000_s2074" type="#_x0000_t75"
+  style='position:absolute;left:7in;top:54pt;width:33.75pt;height:33.75pt'>
+  <v:imagedata src="slide0001_image015.gif" o:title="Globe 034"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2074"
+ src="slide0001_image015.gif" style='position:absolute;top:10.12%;left:70.03%;
+ width:4.69%;height:6.26%'><![endif]><v:shape id="_x0000_s2075" type="#_x0000_t75"
+  style='position:absolute;left:168pt;top:54pt;width:33.75pt;height:33.75pt'>
+  <v:imagedata src="slide0001_image015.gif" o:title="Globe 034"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2075"
+ src="slide0001_image015.gif" style='position:absolute;top:10.12%;left:23.28%;
+ width:4.69%;height:6.26%'><![endif]></p:slide></div>
+
+</body>
+
+</html>

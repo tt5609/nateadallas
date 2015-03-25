@@ -1,0 +1,624 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File
+href="../NATEA_Flyer_Annual_Conference_2009B.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title> </title>
+<meta name=Description content="9/30/2009:  ">
+<link rel=Stylesheet href="master03_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() 
+{
+	var regExp = /file:\/\/\//i
+	var pos = location.href.search(regExp)
+	if (MHTMLPrefix != "" && pos != -1)
+		sId = location.href.substring(pos)
+	else
+	{
+		sId = RemoveFilePrefixFromHref(location.href);
+		var regExp = /\//
+		var fixedHref = sId
+		var pos = -1
+	
+		pos = fixedHref.search(regExp)
+		while (pos != -1)
+		{
+			fixedHref = fixedHref.replace(regExp, "\\")
+			pos = fixedHref.search(regExp)
+		}
+	
+		if (g_fBaseHyperlink == true)
+			sId = "file:///" + fixedHref;
+		else
+			sId = fixedHref.substring(fixedHref.lastIndexOf('\\') + 1)
+	}
+	
+	return sId
+}
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="9"/>
+</o:shapelayout>
+</head>
+
+<body lang=EN-US style='margin:0px;background-color:white' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:#66FFFF;background-image:
+url("slide0006_background.gif");clip:rect(0%, 101%, 101%, 0%);visibility:hidden'><p:slide
+ coordsize="720,540"
+ colors="#ffffff,#000000,#808080,#000000,#bbe0e3,#333399,#009999,#99cc00"
+ masterhref="master03.xml">
+ <v:background id="_x0000_s9217" o:bwmode="white" fillcolor="#6ff">
+  <v:fill src="slide0006_image001.gif" o:title="20%" color2="white [0]" type="pattern"/>
+ </v:background><![if !ppt]><p:shaperange href="master03.xml#_x0000_s1028"/><p:shaperange
+  href="master03.xml#_x0000_s1029"/><![endif]><p:shaperange
+  href="master03.xml#_x0000_m1026"/><v:shape id="_x0000_s9218" type="#_x0000_m1026"
+  style='position:absolute;left:36pt;top:24pt;width:9in;height:90pt'>
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="title"/></v:shape><p:shaperange
+  href="master03.xml#_x0000_m1027"/><v:shape id="_x0000_s9219" type="#_x0000_m1027"
+  style='position:absolute;left:36pt;top:126pt;width:9in;height:356.375pt'>
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="body" position="1"/></v:shape>
+ <div v:shape="_x0000_s9218" class=T><span style='position:absolute;top:4.33%;
+ left:5.95%;width:88.08%;height:8.43%'><span style='font-size:91%'><br>
+  </span></span><span style='position:absolute;top:13.25%;left:5.95%;
+ width:88.08%;height:8.43%'><span style='font-size:91%;mso-special-format:lastCR;
+ display:none'>&#13;</span></span></div>
+ <div v:shape="_x0000_s9219" class=B>
+ <div style='position:absolute;top:24.33%;left:5.95%;width:88.08%;height:6.74%'><span
+ style='position:absolute;top:0%;left:4.3%;width:95.9%;height:100.0%'><span
+ style='visibility:hidden'><span class=BB style='position:absolute;left:-4.48%'>•</span></span>&#13;</span></div>
+ <div style='position:absolute;top:33.01%;left:5.95%;width:88.08%;height:6.74%'><span
+ style='position:absolute;top:0%;left:4.3%;width:95.9%;height:100.0%'><span
+ style='visibility:hidden'><span class=BB style='position:absolute;left:-4.48%'>•</span></span><span
+ style='mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s9220" type="#_x0000_t75" style='position:absolute;
+  left:198pt;top:132pt;width:320.5pt;height:336pt'>
+  <v:imagedata src="slide0006_image002.png" o:title="Gold Spectrum 02"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9220"
+ src="slide0006_image003.gif" style='position:absolute;top:24.33%;left:27.43%;
+ width:44.58%;height:62.16%'><![endif]><v:rect id="_x0000_s9221" style='position:absolute;
+  left:0;top:282pt;width:10in;height:258pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="aqua" stroked="f" strokecolor="black [1]">
+  <v:fill src="slide0006_image001.gif" o:title="20%" color2="white [0]" type="pattern"/>
+  <v:shadow color="gray [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s9221"
+ src="slide0006_image004.gif" style='position:absolute;top:52.28%;left:0%;
+ width:100.36%;height:48.19%'><![endif]><v:shape id="_x0000_s9222" type="#_x0000_t75"
+  style='position:absolute;left:180pt;top:2in;width:263.25pt;height:336.75pt'>
+  <v:imagedata src="slide0006_image005.gif" o:title="Taiwan-Image-10"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9222"
+ src="slide0006_image005.gif" style='position:absolute;top:26.74%;left:25.09%;
+ width:36.64%;height:62.4%'><![endif]><v:shapetype id="_x0000_t136"
+  coordsize="21600,21600" o:spt="136" adj="10800" path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s9223" type="#_x0000_t136" style='position:absolute;
+  left:36pt;top:36pt;width:637.5pt;height:41.25pt' fillcolor="#825600"
+  stroked="f">
+  <v:fill color2="#ffa800" rotate="t" angle="-45" colors="0 #825600;8520f #ffa800;18350f #825600;28180f #ffa800;38011f #825600;47186f #ffa800;57016f #825600;1 #ffa800"
+   method="none" type="gradient"/>
+  <v:shadow color="#868686"/>
+  <v:textpath style='font-family:"Arial Black";v-text-kern:t' trim="t"
+   fitpath="t" string="2009&#24180;&#21488;&#28771;&#24037;&#31243;&#24107;&#21332;&#26371;&#9472;&#36948;&#25289;&#26031;&#20998;&#26371;&#24180;&#26371;"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9223"
+ src="slide0006_image006.gif" alt="2009&#24180;&#21488;&#28771;&#24037;&#31243;&#24107;&#21332;&#26371;&#9472;&#36948;&#25289;&#26031;&#20998;&#26371;&#24180;&#26371;"
+ style='position:absolute;top:6.74%;left:5.05%;width:88.8%;height:7.95%'><![endif]><v:shape
+  id="_x0000_s9224" type="#_x0000_t75" style='position:absolute;left:24pt;
+  top:90pt;width:138pt;height:131.625pt'>
+  <v:imagedata src="slide0006_image007.png" o:title="NATEA-LOGO-Small"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9224"
+ src="slide0006_image008.gif" style='position:absolute;top:16.62%;left:3.24%;
+ width:19.13%;height:24.33%'><![endif]><v:shape id="_x0000_s9225" type="#_x0000_t75"
+  style='position:absolute;left:558pt;top:90pt;width:2in;height:131.75pt'>
+  <v:imagedata src="slide0006_image009.png" o:title="Globe-04"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9225"
+ src="slide0006_image010.gif" style='position:absolute;top:16.62%;left:77.43%;
+ width:20.03%;height:24.33%'><![endif]><v:shapetype id="_x0000_t144"
+  coordsize="21600,21600" o:spt="144" adj="11796480" path="al10800,10800,10800,10800@2@14e">
+  <v:formulas>
+   <v:f eqn="val #1"/>
+   <v:f eqn="val #0"/>
+   <v:f eqn="sum 0 0 #0"/>
+   <v:f eqn="sumangle #0 0 180"/>
+   <v:f eqn="sumangle #0 0 90"/>
+   <v:f eqn="prod @4 2 1"/>
+   <v:f eqn="sumangle #0 90 0"/>
+   <v:f eqn="prod @6 2 1"/>
+   <v:f eqn="abs #0"/>
+   <v:f eqn="sumangle @8 0 90"/>
+   <v:f eqn="if @9 @7 @5"/>
+   <v:f eqn="sumangle @10 0 360"/>
+   <v:f eqn="if @10 @11 @10"/>
+   <v:f eqn="sumangle @12 0 360"/>
+   <v:f eqn="if @12 @13 @12"/>
+   <v:f eqn="sum 0 0 @14"/>
+   <v:f eqn="val 10800"/>
+   <v:f eqn="cos 10800 #0"/>
+   <v:f eqn="sin 10800 #0"/>
+   <v:f eqn="sum @17 10800 0"/>
+   <v:f eqn="sum @18 10800 0"/>
+   <v:f eqn="sum 10800 0 @17"/>
+   <v:f eqn="if @9 0 21600"/>
+   <v:f eqn="sum 10800 0 @18"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="10800,@22;@19,@20;@21,@20"/>
+  <v:textpath on="t" style='v-text-kern:t' fitpath="t"/>
+  <v:handles>
+   <v:h position="@16,#0" polar="10800,10800"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s9226" type="#_x0000_t144" style='position:absolute;
+  left:192pt;top:120pt;width:336pt;height:300pt' fillcolor="#825600" stroked="f">
+  <v:fill color2="#ffa800" rotate="t" angle="-45" colors="0 #825600;8520f #ffa800;18350f #825600;28180f #ffa800;38011f #825600;47186f #ffa800;57016f #825600;1 #ffa800"
+   method="none" focus="50%" type="gradient"/>
+  <v:shadow color="#868686"/>
+  <v:textpath style='font-family:"Times New Roman";font-size:60pt' fitshape="t"
+   trim="t" string="Emerging Technologies"/>
+ </v:shape><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s9227" type="#_x0000_t202" style='position:absolute;
+  left:0;top:300pt;width:10in;height:36pt' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s9228" style='position:absolute;left:0;top:354pt;
+  width:10in;height:161.25pt;v-text-anchor:middle' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:shape id="_x0000_s9229" type="#_x0000_t136" style='position:absolute;
+  left:246pt;top:204pt;width:231pt;height:36.75pt' fillcolor="#060" stroked="f">
+  <v:fill color2="#f93" rotate="t"/>
+  <v:shadow on="t" color="silver" opacity="52429f"/>
+  <v:textpath style='font-family:"Impact";font-size:32pt;v-text-kern:t' trim="t"
+   fitpath="t" string="&#20027;&#38988;&#65306;&#21069;&#30651;&#31185;&#25216;"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9226,_x0000_s9229"
+ src="slide0006_image011.gif" style='position:absolute;top:18.31%;left:23.82%;
+ width:51.44%;height:32.04%'><![endif]>
+ <div v:shape="_x0000_s9227" class=O style='text-align:center;mso-line-spacing:
+ "100 50 0";position:absolute;top:56.86%;left:-5.95%;width:112.09%;height:4.57%'><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:Arial;font-size:133%;color:#990000;
+ mso-ansi-language:EN-US'><b>&#20027;&#35611;&#20358;&#36051;&#65306;&#27946;&#22522;&#38534;&#21338;&#22763;&#12289;&#27946;&#20854;&#29863;&#21338;&#22763;&#12289;&#35613;&#24950;&#22530;&#21338;&#22763;&#12289;&#26446;&#20136;&#21855;&#21338;&#22763;</b></span></div>
+ <div v:shape="_x0000_s9228" class=O>
+ <div style='position:absolute;top:66.5%;left:1.08%;width:98.19%;height:3.61%'><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#990000;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>                        </span></b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b>&#39184;&#36027;</b></span><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>    </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b>&#65306;</b></span><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>    </span>$25 Per person<span
+ style='mso-spacerun:yes'>     </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b>&#23416;&#29983;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-fareast-language:ZH-TW'><b>$15&#13;</b></span></div>
+ <div style='position:absolute;top:70.12%;left:1.08%;width:98.19%;height:3.61%'><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>                        </span></b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b>&#26371;&#36027;</b></span><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>    </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b>&#65306;</b></span><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>    </span>Couple - $30<span
+ style='mso-spacerun:yes'>         </span>Single - $20<span
+ style='mso-spacerun:yes'>       </span>Student - $10</b></span><span
+ lang=EN-US style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW;display:none'><b>&#13;</b></span></div>
+ <span style='position:absolute;top:73.49%;left:1.08%;width:98.19%;height:3.61%'><span
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-hansi-font-family:"Times New Roman";font-size:89%;color:#006600'><b><span
+ style='mso-spacerun:yes'>                        </span>Date&nbsp;&nbsp;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-fareast-language:ZH-TW'><b><span
+ style='mso-spacerun:yes'>  </span></b></span><span style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600'><b> :<span style='mso-spacerun:yes'>     
+ </span>November 14 (Saturday)<br>
+  </b></span></span><span style='position:absolute;top:77.1%;left:1.08%;
+ width:98.19%;height:3.61%'><span style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600'><b><span
+ style='mso-spacerun:yes'>                        </span>Time&nbsp;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-fareast-language:ZH-TW'><b><span
+ style='mso-spacerun:yes'>  </span></b></span><span style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600'><b>&nbsp;:<span style='mso-spacerun:yes'>     
+ </span>1:30-10:00 pm<span style='mso-spacerun:yes'>  </span>&#13;</b></span></span>
+ <div style='position:absolute;top:80.72%;left:1.08%;width:98.37%;height:3.61%'><span
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-hansi-font-family:"Times New Roman";font-size:89%;color:#006600'><b><span
+ style='mso-spacerun:yes'>                        </span>Place&nbsp; </b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-fareast-language:ZH-TW'><b><span
+ style='mso-spacerun:yes'>  </span></b></span><span style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600'><b>:<span style='mso-spacerun:yes'>     
+ </span>Holiday Inn (NE corner of 635 LBJ and I-35E, on north side&#13;</b></span></div>
+ <div style='position:absolute;top:84.33%;left:1.08%;width:98.19%;height:3.61%'><span
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-hansi-font-family:"Times New Roman";font-size:89%;color:#006600'><b><span
+ style='mso-spacerun:yes'>                                           
+ </span>service road of LBJ) </b></span><span lang=EN-US style='font-family:
+ \65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:
+ \65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";font-size:89%;
+ color:#006600;mso-fareast-language:ZH-TW;display:none'><b>&#13;</b></span></div>
+ <div style='mso-line-spacing:"25 0 0";position:absolute;top:86.02%;left:1.08%;
+ width:98.19%;height:3.13%'><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:"Times New Roman";font-size:89%;color:#006600;
+ mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div style='position:absolute;top:88.67%;left:1.08%;width:105.95%;height:3.61%'><span
+ lang=ZH-TW style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>                 </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:89%;color:#006600;mso-ansi-language:EN-US'><b>&#32879;&#32097;&#20154;&#21729;&#65306;</b></span><span
+ lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-ansi-language:EN-US'><b>&#33674;&#27193;&#28304;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(817-277-9224)<span
+ style='mso-spacerun:yes'>     </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-ansi-language:EN-US'><b>&#35613;&#24950;&#37848;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(972-624-8232)<span
+ style='mso-spacerun:yes'>    </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-ansi-language:EN-US'><b>&#38515;&#20271;&#21211;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(972-618-4102)<span
+ style='mso-spacerun:yes'>    </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-ansi-language:EN-US'><b>&#36249;&#33459;&#29645;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(972-910-0742)<span
+ style='mso-spacerun:yes'>   </span>&#13;</b></span></div>
+ <div style='position:absolute;top:92.28%;left:1.08%;width:98.19%;height:2.65%'><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b><span
+ style='mso-spacerun:yes'>                                                
+ </span></b></span><span lang=ZH-TW style='font-family:\65B0\7D30\660E\9AD4;
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:\65B0\7D30\660E\9AD4;
+ mso-hansi-font-family:"Times New Roman";font-size:67%;color:#006600;
+ mso-ansi-language:EN-US'><b>&#35449;&#25991;&#32882;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(817-354-6217)<span
+ style='mso-spacerun:yes'>     </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-ansi-language:EN-US'><b>&#34081;&#38748;&#29004;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(817-261-3929)<span
+ style='mso-spacerun:yes'>    </span></b></span><span lang=ZH-TW
+ style='font-family:\65B0\7D30\660E\9AD4;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-ansi-language:EN-US'><b>&#37041;&#24535;&#20502;</b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:\65B0\7D30\660E\9AD4;mso-hansi-font-family:"Times New Roman";
+ font-size:67%;color:#006600;mso-fareast-language:ZH-TW'><b>(972-208-8548) </b></span></div>
+ </div>
+ <v:shape id="_x0000_s9231" type="#_x0000_t75" style='position:absolute;left:24pt;
+  top:474pt;width:431.25pt;height:7.5pt'>
+  <v:imagedata src="slide0006_image012.gif" o:title="309841jdk2sj4u27"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9231"
+ src="slide0006_image012.gif" style='position:absolute;top:87.71%;left:3.24%;
+ width:59.92%;height:1.44%'><![endif]><v:shape id="_x0000_s9232" type="#_x0000_t75"
+  style='position:absolute;left:264pt;top:474pt;width:431.25pt;height:7.5pt'>
+  <v:imagedata src="slide0006_image012.gif" o:title="309841jdk2sj4u27"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9232"
+ src="slide0006_image012.gif" style='position:absolute;top:87.71%;left:36.64%;
+ width:59.92%;height:1.44%'><![endif]><v:shape id="_x0000_s9239" type="#_x0000_t75"
+  style='position:absolute;left:0;top:0;width:10in;height:540pt'>
+  <v:imagedata src="slide0006_image013.png" o:title="Frame-Gold53"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s9239"
+ src="slide0006_image014.gif" style='position:absolute;top:0%;left:0%;
+ width:100.0%;height:100.0%'><![endif]></p:slide></div>
+
+</body>
+
+</html>

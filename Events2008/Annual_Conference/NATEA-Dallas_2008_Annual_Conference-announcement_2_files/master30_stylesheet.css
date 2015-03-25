@@ -1,0 +1,348 @@
+body
+	{width:554px;
+	height:415px;}
+.TB
+	{mso-special-format:nobullet•;}
+.T
+	{text-align:left;
+	font-family:"Arial Narrow";
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:200%;
+	mso-line-spacing:"85 0 0";}
+.BB
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.B
+	{text-align:left;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:120%;}
+.B1B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:"Monotype Sorts";
+	font-size:70%;}
+.B1
+	{text-align:left;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:120%;}
+.B2B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.B2
+	{text-align:left;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:100%;}
+.B3B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.B3
+	{text-align:left;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:100%;}
+.B4B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.B4
+	{text-align:left;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:90%;}
+.N
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.N1
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.N2
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.N3
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.N4
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.OB
+	{mso-special-format:nobullet•;}
+.O
+	{text-align:left;
+	font-family:Arial;
+	color:white;
+	mso-color-index:1;
+	font-size:90%;
+	mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.O1B
+	{mso-special-format:nobullet•;}
+.O1
+	{text-align:left;
+	font-family:Arial;
+	color:white;
+	mso-color-index:1;
+	font-size:90%;
+	mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.O2
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.O3
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.O4
+	{mso-char-wrap:1;
+	mso-kinsoku-overflow:1;}
+.CBB
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.CB
+	{text-align:left;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:120%;
+	mso-line-spacing:"85 20 0";}
+.CB1B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:"Monotype Sorts";
+	font-size:70%;}
+.CB1
+	{text-align:center;
+	font-family:Arial;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:120%;}
+.CB2B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.CB2
+	{layout-flow:vertical;
+	font-size:100%;}
+.CB3B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.CB3
+	{layout-flow:vertical;}
+.CB4B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.CB4
+	{layout-flow:vertical;
+	font-size:90%;}
+.CTB
+	{mso-special-format:nobullet•;}
+.CT
+	{text-align:left;
+	font-family:"Arial Narrow";
+	layout-flow:vertical;
+	color:#FF9900;
+	mso-color-index:3;
+	font-size:200%;
+	mso-line-spacing:"85 0 0";}
+.HBB
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.HB
+	{layout-flow:vertical;
+	font-size:100%;}
+.HB1B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:"Monotype Sorts";
+	font-size:70%;}
+.HB1
+	{layout-flow:vertical;
+	font-size:100%;}
+.HB2B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.HB2
+	{layout-flow:vertical;
+	font-size:90%;}
+.HB3B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.HB3
+	{layout-flow:vertical;}
+.HB4B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.HB4
+	{layout-flow:vertical;
+	font-size:80%;}
+.QBB
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.QB
+	{layout-flow:vertical;
+	font-size:90%;}
+.QB1B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:"Monotype Sorts";
+	font-size:70%;}
+.QB1
+	{layout-flow:vertical;
+	font-size:90%;}
+.QB2B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.QB2
+	{layout-flow:vertical;
+	font-size:80%;}
+.QB3B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.QB3
+	{layout-flow:vertical;}
+.QB4B
+	{mso-special-format:bulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.QB4
+	{layout-flow:vertical;
+	font-size:70%;}
+.TblB
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.Tbl
+	{layout-flow:vertical;
+	font-size:100%;}
+.Tbl1B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:"Monotype Sorts";
+	font-size:70%;}
+.Tbl1
+	{layout-flow:vertical;
+	font-size:100%;}
+.Tbl2B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.Tbl2
+	{layout-flow:vertical;
+	font-size:90%;}
+.Tbl3B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.Tbl3
+	{layout-flow:vertical;}
+.Tbl4B
+	{mso-special-format:nobulletu;
+	color:#FF9933;
+	mso-color-index:6;
+	font-family:Wingdings;
+	font-size:70%;}
+.Tbl4
+	{layout-flow:vertical;
+	font-size:80%;}
+.defaultB
+	{mso-special-format:nobullet•;}
+.default
+	{text-align:left;
+	font-family:Arial;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	text-shadow:none;
+	text-effect:none;
+	mso-fareast-hint:no;
+	layout-flow:vertical;
+	color:white;
+	mso-color-index:1;
+	font-size:120%;
+	mso-text-raise:0%;
+	mso-line-spacing:"100 0 0";
+	mso-margin-left-alt:0;
+	mso-text-indent-alt:0;
+	mso-char-wrap:0;
+	mso-kinsoku-overflow:0;
+	direction:ltr;
+	mso-word-wrap:1;
+	mso-vertical-align-special:baseline;
+	mso-ansi-language:EN-US;}
+a:link
+	{color:#FF9933 !important;}
+a:active
+	{color:#FFFF66 !important;}
+a:visited
+	{color:#FFCCFF !important;}

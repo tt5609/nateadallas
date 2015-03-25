@@ -1,0 +1,520 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../Natea_Flyer_2008.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title> </title>
+<meta name=Description content="9/23/2008">
+<link rel=Stylesheet href="master03_stylesheet.css">
+<![if !ppt]>
+<style>
+.CB
+	{color:white;}
+</style>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {
+		sld.style.visibility="visible"
+		return
+	}
+	if( MakeNotesVis() ) return
+	runAnimations = _InitAnimations();
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+function MakeSldVis()
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis()
+{
+	if( !IsNts() ) return false
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) {
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.getAttribute("filter")!="" }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+		if( g_animItemsToHide ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+	return g_animUseRuntime;
+}
+var g_HLinkArray = new Array();
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+  linkNum = 0;
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+function ScaleHyperlinks( factor )
+{
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) {
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+  return numArray;
+}
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><p:slidetransition advancetime="0" flag="1"/><o:shapelayout
+ v:ext="edit">
+ <o:idmap v:ext="edit" data="7"/>
+</o:shapelayout>
+</head>
+
+<body lang=EN-US style='margin:0px;background-color:black' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:black;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#000000,#FFFFFF,#336699,#E3EBF1,#003399,#468A4B,#66CCFF,#F0E500"
+ masterhref="master03.xml">
+ <p:shaperange href="master03.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href="master03.xml#_x0000_s1028"/><p:shaperange
+  href="master03.xml#_x0000_s1029"/><p:shaperange href="master03.xml#Base"/><![if !ppt]>
+ <div style='visibility:hidden'><![endif]><![if !ppt]></div>
+ <![endif]><![endif]><p:shaperange href="master03.xml#_x0000_m1027"/><v:shape
+  id="_x0000_s7170" type="#_x0000_m1027" style='position:absolute;left:0;top:306pt;
+  width:7in;height:138pt'>
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="subTitle" position="-1"/></v:shape><v:rect id="_x0000_s7171"
+  style='position:absolute;left:0;top:0;width:10in;height:138pt;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="#9fffff" stroked="f"
+  strokecolor="white [1]">
+  <v:fill color2="#e3ebf1 [3]" rotate="t" focusposition=".5,.5" focussize=""
+   type="gradientRadial"/>
+  <v:shadow color="#369 [2]"/>
+ </v:rect><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s7174" type="#_x0000_t202" style='position:absolute;
+  left:90pt;top:156pt;width:564pt;height:128.5pt' filled="f" fillcolor="#039 [4]"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="black [0]"/>
+  <v:shadow color="#369 [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s7175" type="#_x0000_t202" style='position:absolute;
+  left:132pt;top:468pt;width:498pt;height:72.125pt' filled="f" fillcolor="#039 [4]"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="black [0]"/>
+  <v:shadow color="#369 [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7171"
+ src="slide0002_image001.gif" style='position:absolute;top:0%;left:0%;
+ width:100.36%;height:26.02%'><![endif]>
+ <div v:shape="_x0000_s7170" class=CB>
+ <div style='position:absolute;top:57.83%;left:1.08%;width:68.23%;height:6.74%'>&#13;</div>
+ <div style='position:absolute;top:66.26%;left:1.08%;width:68.23%;height:6.74%'><span
+ style='mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s7171" class=O>
+ <div style='text-align:center;mso-line-spacing:"75 0 0";position:absolute;
+ top:-1.68%;left:1.08%;width:98.19%;height:8.43%'><span style='font-family:
+ "Times New Roman";font-size:222%;color:#468A4B;mso-color-index:5;display:none'>&#13;</span></div>
+ <div style='text-align:center;mso-line-spacing:"75 0 0";position:absolute;
+ top:4.81%;left:1.08%;width:98.19%;height:8.43%'><span style='font-family:"Times New Roman";
+ font-size:222%;color:#468A4B;mso-color-index:5'>2008 NATEA &#8211; Dallas&#13;</span></div>
+ <div style='text-align:center;mso-line-spacing:"75 0 0";position:absolute;
+ top:11.56%;left:1.08%;width:98.19%;height:8.43%'><span style='font-family:
+ "Times New Roman";font-size:222%;color:#468A4B;mso-color-index:5'>Annual
+ conference &#13;</span></div>
+ <div style='text-align:center;mso-line-spacing:"75 0 0";position:absolute;
+ top:18.31%;left:1.08%;width:98.19%;height:8.43%'><span style='font-family:
+ "Times New Roman";font-size:222%;color:#468A4B;mso-color-index:5;mso-special-format:
+ lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s7174" class=O>
+ <div style='mso-line-spacing:"60 50 0";position:absolute;top:28.19%;
+ left:13.53%;width:84.11%;height:6.98%'><span style='font-family:MingLiU;
+ mso-ascii-font-family:MingLiU;mso-fareast-font-family:MingLiU;mso-hansi-font-family:
+ MingLiU;font-size:200%'><span style='mso-spacerun:yes'>&nbsp; </span>Featuring
+ Keynote Speaker:&#13;</span></div>
+ <div style='mso-line-spacing:"60 50 0";position:absolute;top:36.38%;
+ left:13.53%;width:79.96%;height:7.71%'><span style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:MingLiU;
+ mso-hansi-font-family:"Times New Roman";font-size:200%'><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>Dr. Chin Shieh</span><span
+ style='font-family:MingLiU;mso-ascii-font-family:MingLiU;mso-fareast-font-family:
+ MingLiU;mso-hansi-font-family:MingLiU'> </span><span style='font-family:MingLiU;
+ mso-ascii-font-family:MingLiU;mso-fareast-font-family:MingLiU;mso-hansi-font-family:
+ MingLiU;font-size:200%;layout-flow:vertical'><b>(&#35613;&#28165;&#24535;&#21338;&#22763;)&#13;</b></span></div>
+ <div style='mso-line-spacing:"60 50 0";position:absolute;top:45.06%;
+ left:13.53%;width:87.54%;height:7.71%'><span style='font-size:200%;layout-flow:
+ vertical'><span style='mso-spacerun:yes'>&nbsp;
+ </span>&#21069;&#34892;&#25919;&#38498;&#22283;&#23478;&#31185;&#23416;&#22996;&#21729;&#26371;&#21103;&#20027;&#22996;</span></div>
+ </div>
+ <div v:shape="_x0000_s7175" class=O>
+ <div style='position:absolute;top:87.46%;left:19.31%;width:67.32%;height:3.85%'><span
+ style='text-shadow:auto;layout-flow:vertical'><b><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>Saturday, November 15th, 2008&#13;</b></span></div>
+ <div style='position:absolute;top:91.56%;left:19.31%;width:67.32%;height:3.85%'><span
+ style='text-shadow:auto;layout-flow:vertical'><b><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>Holiday Inn Select&#13;</b></span></div>
+ <div style='position:absolute;top:95.66%;left:19.31%;width:67.32%;height:3.85%'><span
+ style='layout-flow:vertical'><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>2645 LBJ Freeway, Dallas, TX 75234</span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s7176" type="#_x0000_t75" style='position:absolute;
+  left:534pt;top:318pt;width:186pt;height:146pt'>
+  <v:imagedata src="slide0002_image002.jpg" o:title="Ching Hsieh 2"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7176"
+ src="slide0002_image003.jpg" style='position:absolute;top:58.79%;left:74.18%;
+ width:25.81%;height:26.98%'><![endif]><v:shape id="_x0000_s7177" type="#_x0000_t202"
+  style='position:absolute;left:186pt;top:390pt;width:318pt;height:59.125pt'
+  filled="f" fillcolor="#039 [4]" stroked="f" strokecolor="white [1]">
+  <v:fill color2="black [0]"/>
+  <v:shadow color="#369 [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s7177" class=O>
+ <div style='mso-line-spacing:"65 50 0";position:absolute;top:71.8%;left:26.89%;
+ width:45.66%;height:5.3%'><span style='font-family:"Times New Roman";
+ font-size:133%;layout-flow:vertical'><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+ style='font-family:"Times New Roman";font-size:133%;layout-flow:vertical;
+ color:#FF9900'>Please join us to welcome&#13;</span></div>
+ <div style='mso-line-spacing:"65 50 0";position:absolute;top:77.83%;
+ left:26.89%;width:42.23%;height:5.3%'><span style='font-family:"Times New Roman";
+ font-size:133%;layout-flow:vertical;color:#FF9900'><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Dr. Shieh
+ to Dallas!!</span></div>
+ </div>
+ <v:shape id="_x0000_s7178" type="#_x0000_t75" alt=""
+  href="http://www.wretch.cc/user/chinshieh" target="_blank" style='position:absolute;
+  left:0;top:324pt;width:138pt;height:138pt'>
+  <v:fill o:detectmouseclick="t"/>
+  <v:imagedata src="slide0002_image004.jpg" o:title="Cover_90"/>
+ </v:shape><![if !vml]><map name="map_s10"><area
+ href="http://www.wretch.cc/user/chinshieh" target="_blank"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 107, 107"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s7178" src="slide0002_image005.jpg" usemap="#map_s10"
+ style='position:absolute;top:60.0%;left:0%;width:19.13%;height:25.54%'><![endif]><v:shape
+  id="_x0000_s7179" type="#_x0000_t75" style='position:absolute;left:618pt;
+  top:156pt;width:102pt;height:102pt'>
+  <v:imagedata src="slide0002_image006.gif" o:title="694415ig679r87nz"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7179"
+ src="slide0002_image006.gif" style='position:absolute;top:28.91%;left:85.92%;
+ width:14.07%;height:18.79%'><![endif]><v:shape id="_x0000_s7180" type="#_x0000_t75"
+  style='position:absolute;left:0;top:168pt;width:102pt;height:102pt'>
+  <v:imagedata src="slide0002_image006.gif" o:title="694415ig679r87nz"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7180"
+ src="slide0002_image006.gif" style='position:absolute;top:31.08%;left:0%;
+ width:14.07%;height:18.79%'><![endif]><v:shape id="_x0000_s7181" type="#_x0000_t202"
+  style='position:absolute;left:192pt;top:294pt;width:318pt;height:28.875pt'
+  filled="f" fillcolor="#039 [4]" stroked="f" strokecolor="white [1]">
+  <v:fill color2="black [0]"/>
+  <v:shadow color="#369 [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s7182" type="#_x0000_t202" style='position:absolute;
+  left:168pt;top:306pt;width:342pt;height:64.75pt' filled="f" fillcolor="#039 [4]"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="black [0]"/>
+  <v:shadow color="#369 [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s7181" class=O style='mso-line-spacing:"100 50 0"'><span
+ style='position:absolute;top:55.42%;left:27.61%;width:42.23%;height:3.85%'><span
+ style='mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ <div v:shape="_x0000_s7182" class=O>
+ <div style='position:absolute;top:58.07%;left:24.36%;width:46.38%;height:4.57%'><span
+ lang=EN-US style='font-family:MingLiU;mso-ascii-font-family:MingLiU;
+ mso-fareast-font-family:MingLiU;mso-hansi-font-family:MingLiU;font-size:133%;
+ mso-fareast-language:ZH-TW'><b><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></b></span><span
+ lang=ZH-TW style='font-family:MingLiU;mso-ascii-font-family:MingLiU;
+ mso-fareast-font-family:MingLiU;mso-hansi-font-family:MingLiU;font-size:133%;
+ color:#FFFF99;mso-ansi-language:EN-US'><b>&#39640;&#37941;&#28187;&#38663;&#30340;&#19990;&#30028;&#21109;&#33289;&#13;</b></span></div>
+ <div style='position:absolute;top:63.37%;left:24.36%;width:50.54%;height:4.57%'><span
+ lang=ZH-TW style='font-family:MingLiU;mso-ascii-font-family:MingLiU;
+ mso-fareast-font-family:MingLiU;mso-hansi-font-family:MingLiU;font-size:133%;
+ color:#FFFF99;mso-ansi-language:EN-US'><b><span
+ style='mso-spacerun:yes'>&nbsp;
+ </span>&#22283;&#23478;&#22826;&#31354;IPS&#31995;&#32113;&#30340;&#20652;&#29983;</b></span><span
+ lang=ZH-TW style='font-family:PMingLiU;mso-fareast-font-family:PMingLiU;
+ mso-hansi-font-family:Arial;font-size:133%;color:#FFFF99;mso-ansi-language:
+ EN-US'><b>&#32773;</b></span><span lang=ZH-TW style='mso-fareast-font-family:
+ PMingLiU;mso-hansi-font-family:Arial;mso-ansi-language:EN-US'> </span><span
+ lang=ZH-TW style='mso-ansi-language:EN-US;mso-special-format:lastCR;
+ display:none'>&#13;</span></div>
+ </div>
+ <v:shape id="_x0000_s7183" type="#_x0000_t75" style='position:absolute;left:645pt;
+  top:465pt;width:75pt;height:75pt'>
+  <v:imagedata src="slide0002_image007.gif" o:title="17"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7183"
+ src="slide0002_image007.gif" style='position:absolute;top:86.02%;left:89.53%;
+ width:10.46%;height:13.97%'><![endif]><v:shape id="_x0000_s7184" type="#_x0000_t75"
+  style='position:absolute;left:60pt;top:465pt;width:75pt;height:75pt'>
+  <v:imagedata src="slide0002_image007.gif" o:title="17"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7184"
+ src="slide0002_image007.gif" style='position:absolute;top:86.02%;left:8.3%;
+ width:10.46%;height:13.97%'><![endif]><v:shape id="_x0000_s7185" type="#_x0000_t75"
+  style='position:absolute;left:468pt;top:396pt;width:63pt;height:63pt'>
+  <v:imagedata src="slide0002_image007.gif" o:title="17"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7185"
+ src="slide0002_image007.gif" style='position:absolute;top:73.25%;left:64.98%;
+ width:8.66%;height:11.56%'><![endif]><v:shape id="_x0000_s7186" type="#_x0000_t75"
+  style='position:absolute;left:150pt;top:402pt;width:69pt;height:69pt'>
+  <v:imagedata src="slide0002_image007.gif" o:title="17"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7186"
+ src="slide0002_image007.gif" style='position:absolute;top:74.45%;left:20.75%;
+ width:9.56%;height:12.77%'><![endif]><v:shape id="_x0000_s7187" type="#_x0000_t75"
+  style='position:absolute;left:619.25pt;top:204pt;width:100.75pt;height:1in'>
+  <v:imagedata src="slide0002_image008.jpg" o:title="TN_space_07_2_07"
+   chromakey="#f6f6f6"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7187"
+ src="slide0002_image009.gif" style='position:absolute;top:37.83%;left:85.92%;
+ width:14.07%;height:13.25%'><![endif]><v:shape id="_x0000_s7188" type="#_x0000_t75"
+  style='position:absolute;left:474pt;top:330pt;width:66pt;height:62.25pt'>
+  <v:imagedata src="slide0002_image010.jpg" o:title="TN_Technology_03"
+   chromakey="white"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7188"
+ src="slide0002_image011.gif" style='position:absolute;top:61.2%;left:65.88%;
+ width:9.2%;height:11.56%'><![endif]><v:shape id="_x0000_s7190" type="#_x0000_t75"
+  style='position:absolute;left:342pt;top:4in;width:24pt;height:24pt'>
+  <v:imagedata src="slide0002_image012.gif" o:title="earth-004"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7190"
+ src="slide0002_image012.gif" style='position:absolute;top:53.25%;left:47.47%;
+ width:3.24%;height:4.33%'><![endif]><v:shape id="_x0000_s7191" type="#_x0000_t75"
+  style='position:absolute;left:594pt;top:24pt;width:102pt;height:102pt'>
+  <v:imagedata src="slide0002_image013.gif" o:title="earth"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7191"
+ src="slide0002_image013.gif" style='position:absolute;top:4.33%;left:82.49%;
+ width:14.07%;height:18.79%'><![endif]><v:shape id="_x0000_s7192" type="#_x0000_t75"
+  style='position:absolute;left:0;top:0;width:150pt;height:137.875pt'>
+  <v:imagedata src="slide0002_image014.jpg" o:title="NATEA LOGO 100"
+   chromakey="white"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7192"
+ src="slide0002_image015.gif" style='position:absolute;top:0%;left:0%;
+ width:20.75%;height:25.54%'><![endif]><v:shape id="_x0000_s7193" type="#_x0000_t75"
+  style='position:absolute;left:534.125pt;top:293pt;width:140.75pt;height:12.625pt;
+  rotation:-2243787fd'>
+  <v:imagedata src="slide0002_image016.gif" o:title="anidivider"/>
+  <o:lock v:ext="edit" cropping="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s7193"
+ src="slide0002_image016.gif" style='position:absolute;top:46.98%;left:75.45%;
+ width:17.14%;height:16.62%'><![endif]></p:slide></div>
+
+</body>
+
+</html>
