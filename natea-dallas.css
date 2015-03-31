@@ -6,8 +6,11 @@ DIV.Section1 {
     page: Section1;
 }
 
-span.SidebarHeader {
-    display: block;
+span.SideBar{
+    display: block;    
+}
+
+span.Header {
     font-family: pristina;
     color: rgb(0, 102, 0);
     font-weight: bold;
@@ -15,6 +18,34 @@ span.SidebarHeader {
     font-size: 28px;
 }
 
+span.SubHeader{
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+span.Conent{
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+table.SideBar {
+    margin: 5px 0;
+    width: 100%;
+    }
+
+td.SideBar{
+    text-align: left;
+    font-weight: bold;
+}
+
+td.Header {
+    font-weight: bolder;
+    text-wrap: none;
+    width: 22%;
+    vertical-align: top;
+    background-color: lightgray;
+}
 /* Accordion Menu powered by www.menucool.com */
 
 /* ##### Top level items #####*/
